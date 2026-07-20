@@ -6,3 +6,12 @@
 	path = variant/sqisign-v2
 	url = https://github.com/DominicFox/the-sqisign.git
 	branch = main
+[submodule "variant/sqisign-2deast"]
+	path = variant/sqisign-2deast
+	url = https://github.com/DominicFox/SQIsign2D-East.jl.git
+[submodule "variant/sqisignhd"]
+	path = variant/sqisignhd
+	url = https://github.com/DominicFox/SQISignHD-lib.git
+[submodule "variant/sqisign-2dwest"]
+	path = variant/sqisign-2dwest
+	url = https://github.com/SQISign/sqisign2d-west-ac24.git

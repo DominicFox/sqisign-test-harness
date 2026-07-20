@@ -1,0 +1,8 @@
+[submodule "variant/sqisign-v1"]
+	path = variant/sqisign-v1
+	url = https://github.com/DominicFox/the-sqisign.git
+	branch = v1
+[submodule "variant/sqisign-v2"]
+	path = variant/sqisign-v2
+	url = https://github.com/DominicFox/the-sqisign.git
+	branch = main

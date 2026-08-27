@@ -14,4 +14,4 @@
 	url = https://github.com/DominicFox/SQISignHD-lib.git
 [submodule "variant/sqisign-2dwest"]
 	path = variant/sqisign-2dwest
-	url = https://github.com/SQISign/sqisign2d-west-ac24.git
+	url = https://github.com/DominicFox/sqisign2d-west-ac24.git

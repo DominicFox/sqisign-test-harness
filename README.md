@@ -18,8 +18,8 @@ julia -e 'using Pkg; Pkg.add("Nemo")'
 To ensure all cryptographic submodules are fetched correctly, you must clone the repository recursively. 
 
 ```bash
-git clone --recurse-submodules <your-repo-url>
-cd <your-repo-directory>
+git clone --recurse-submodules https://github.com/DominicFox/sqisign-test-harness.git
+cd sqisign-test-harness
 ```
 
 ## 2. Compile C Binaries

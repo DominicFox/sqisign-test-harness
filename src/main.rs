@@ -90,7 +90,7 @@ fn main() {
     // ============================================================================
 
     // GLOBAL PARAMS
-    let total_batches = 5;
+    let total_batches = 1;
     let warmup_iterations = 15;
     let thermal_secs = 15;
 

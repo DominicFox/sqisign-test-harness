@@ -6,7 +6,12 @@ It is a custom benchmarking test harness designed to evaluate the stack memory u
 # Running The Code
 ## System Requirements
 * **Architecture:** Native AArch64 environment (e.g., Apple Silicon).
-* **Toolchain:** Rust (`cargo`), `cmake`, `make`, and a C compiler (`clang`/`gcc`).
+* **Dependencies:**
+  * Rust (`cargo`) (version 1.93.1 or later)
+  * CMake (version 3.13 or later)
+  * C11-compatible compiler (`clang` or `gcc`)
+  * `make`
+  * GMP (version 6.1.2 or later)
 * **Julia:** Required specifically for executing the SQISign2D-East variant.
 
 The 2D-East variant relies on Julia and requires the `Nemo` algebra package. To install it, run the following command in your terminal:
@@ -18,8 +23,8 @@ julia -e 'using Pkg; Pkg.add("Nemo")'
 To ensure all cryptographic submodules are fetched correctly, you must clone the repository recursively. 
 
 ```bash
-git clone --recurse-submodules <your-repo-url>
-cd <your-repo-directory>
+git clone --recurse-submodules https://github.com/DominicFox/sqisign-test-harness.git
+cd sqisign-test-harness
 ```
 
 ## 2. Compile C Binaries

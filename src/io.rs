@@ -3,7 +3,7 @@ use std::io::Read;
 use std::path::Path;
 use std::mem;
 
-use crate::models::{BenchmarkRow, KeygenRow, StackRow, StackTelemetryRow};
+use crate::models::{BenchmarkRow, TelemetryRow, KeygenRow, StackRow, StackTelemetryRow};
 
 pub fn write_keygen_csv(rows: Vec<KeygenRow>, filename: &str) {
     let file_exists = Path::new(filename).exists();

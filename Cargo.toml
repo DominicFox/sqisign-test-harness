@@ -4,24 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# For screamingly fast CSV serialization
 csv = "1.3"
 serde = { version = "1.0", features = ["derive"] }
-# For precise execution timestamp logging
 chrono = "0.4"
-# For communicating directly with the macOS system hooks (taskpolicy, setpriority)
 libc = "0.2"
 
 [build-dependencies]
 cmake = "0.1"
-
-[dev-dependencies]
-criterion = "0.5"
-pprof = { version = "0.13", features = ["flamegraph", "criterion"] }
-
-[[bench]]
-name = "sqisign_flamegraph"
-harness = false
-
-[profile.bench]
-debug = true

@@ -5,7 +5,7 @@ use std::fs::File;
 use std::io::Read;
 use chrono::Utc;
 
-use crate::models::{BenchmarkRow, SchemeConfig, TelemetryRow, KeygenRow, KeyMetadataRow, SignatureTelemetryRow, StackRow};
+use crate::models::{BenchmarkRow, SchemeConfig, TelemetryRow, KeygenRow, StackRow};
 use crate::io;
 
 use std::ffi::CString;

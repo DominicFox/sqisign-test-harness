@@ -3,7 +3,7 @@ use std::io::Read;
 use std::path::Path;
 use std::mem;
 
-use crate::models::{BenchmarkRow, TelemetryRow, KeygenRow, KeyMetadataRow, SignatureTelemetryRow, StackRow, StackTelemetryRow};
+use crate::models::{BenchmarkRow, KeygenRow, StackRow, StackTelemetryRow};
 
 pub fn write_keygen_csv(rows: Vec<KeygenRow>, filename: &str) {
     let file_exists = Path::new(filename).exists();
@@ -117,61 +117,3 @@ pub fn write_stack_csv(rows: Vec<StackRow>, filename: &str) {
 }
 
 
-
-// BELOW IS LEGACY CODE FROM AN ATTEMPT TO SEPARATE THE CSVs USING FOREIGN KEYS: RETAINED FOR REFERENCE PURPOSES
-
-// ============================================================================
-// WRITE METADATA (The "Heavy" Table)
-// ============================================================================
-pub fn write_metadata_csv(rows: Vec<KeyMetadataRow>, filepath: &str) {
-    let file_exists = Path::new(filepath).exists();
-
-    let file = OpenOptions::new()
-        .write(true)
-        .create(true)
-        .append(true)
-        .open(filepath)
-        .unwrap_or_else(|_| panic!("[-] Failed to open or create metadata file: {}", filepath));
-
-    let mut wtr = csv::WriterBuilder::new()
-        .has_headers(!file_exists) // Only write headers if the file is brand new
-        .from_writer(file);
-
-    for row in rows {
-        if let Err(e) = wtr.serialize(row) {
-            eprintln!("[-] Error serializing metadata row: {}", e);
-        }
-    }
-
-    if let Err(e) = wtr.flush() {
-        eprintln!("[-] Error flushing metadata CSV: {}", e);
-    }
-}
-
-// ============================================================================
-// WRITE TELEMETRY (The "Light" Table)
-// ============================================================================
-pub fn write_telemetry_csv(rows: Vec<SignatureTelemetryRow>, filepath: &str) {
-    let file_exists = Path::new(filepath).exists();
-
-    let file = OpenOptions::new()
-        .write(true)
-        .create(true)
-        .append(true)
-        .open(filepath)
-        .unwrap_or_else(|_| panic!("[-] Failed to open or create telemetry file: {}", filepath));
-
-    let mut wtr = csv::WriterBuilder::new()
-        .has_headers(!file_exists) // Only write headers if the file is brand new
-        .from_writer(file);
-
-    for row in rows {
-        if let Err(e) = wtr.serialize(row) {
-            eprintln!("[-] Error serializing telemetry row: {}", e);
-        }
-    }
-
-    if let Err(e) = wtr.flush() {
-        eprintln!("[-] Error flushing telemetry CSV: {}", e);
-    }
-}

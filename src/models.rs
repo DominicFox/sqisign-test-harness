@@ -86,29 +86,3 @@ pub struct SchemeConfig {
 }
 
 
-
-
-// ============================================================================
-// OUTDATED STRUCTS BELOW: EXPERIMENTED WITH SEPARATING CSVs TO REDUCE REDUNDUNT DATA STORAGE
-// ============================================================================
-#[derive(Serialize)]
-pub struct KeyMetadataRow {
-    pub timestamp: String,
-    pub variant: String,
-    pub level: u32,
-    pub batch_id: usize,
-    pub key_index: u64,           
-    pub public_key_hex: String,
-    pub secret_key_hex: String,
-    pub keygen_cycles: f64,
-}
-#[derive(Serialize)]
-pub struct SignatureTelemetryRow {
-    pub batch_id: usize,
-    pub key_index: u64,           
-    pub iteration_index: u64,     
-    pub message_hex: String,
-    pub thermal_state: u64,
-    pub sign_cycles: f64,
-    pub verify_cycles: f64,
-}
